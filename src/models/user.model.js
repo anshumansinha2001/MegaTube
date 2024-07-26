@@ -16,7 +16,7 @@ const userSchema = new Schema(
       type: String,
       required: true,
       unique: true,
-      lowercase: true,
+      lowecase: true,
       trim: true,
     },
     fullName: {
@@ -25,16 +25,12 @@ const userSchema = new Schema(
       trim: true,
       index: true,
     },
-    password: {
-      type: String,
-      required: [true, "Password is required!"],
-    },
     avatar: {
       type: String, // cloudinary url
       required: true,
     },
     coverImage: {
-      type: String,
+      type: String, // cloudinary url
     },
     watchHistory: [
       {
@@ -42,6 +38,10 @@ const userSchema = new Schema(
         ref: "Video",
       },
     ],
+    password: {
+      type: String,
+      required: [true, "Password is required"],
+    },
     refreshToken: {
       type: String,
     },
